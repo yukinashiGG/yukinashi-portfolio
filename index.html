@@ -70,8 +70,11 @@
         .hero__content { position: relative; z-index: 1; text-align: center; max-width: 800px; margin: 0 auto; }
         .hero__badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(236, 72, 153, 0.15); border: 1px solid rgba(236, 72, 153, 0.3); padding: 6px 16px; border-radius: 100px; font-size: 0.8rem; font-weight: 500; color: var(--accent-pink-light); margin-bottom: 32px; animation: fadeInUp 0.8s ease; backdrop-filter: blur(8px); }
         .hero__badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-green); animation: pulse 2s ease-in-out infinite; }
-        .hero__title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.4; margin-bottom: 24px; animation: fadeInUp 0.8s ease 0.1s both; color: #ffffff; }
-        .hero__title .gradient-text { background: linear-gradient(135deg, #f472b6, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero__title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.4; margin-bottom: 24px; color: #ffffff; }
+        .hero__title .gradient-text { background: linear-gradient(135deg, #f472b6, #c084fc, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% 200%; animation: gradientShift 4s ease infinite; }
+        .hero__title .hero-char { display: inline-block; opacity: 0; transform: translateY(20px); animation: charReveal 0.5s ease forwards; }
+        @keyframes charReveal { to { opacity: 1; transform: translateY(0); } }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .hero__description { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 48px; line-height: 1.9; animation: fadeInUp 0.8s ease 0.2s both; }
         .hero__cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.3s both; }
 
@@ -322,12 +325,12 @@
         <div class="container">
             <div class="hero__content">
                 <div class="hero__badge">お仕事受付中 ・ 4月〜着手可能</div>
-                <h1 class="hero__title">
-                    あなたのキャラに、<br><span class="gradient-text">命を吹き込む。</span>
+                <h1 class="hero__title" id="hero-title">
+                    あなたのキャラクターを、<br><span class="gradient-text">一番輝く姿に。</span>
                 </h1>
                 <p class="hero__description">
-                    業界歴12年のCGクリエイターが、一枚絵からLive2Dモデリング、<br class="hide-sp">
-                    映像制作・エフェクトまでワンストップで対応します。
+                    Live2Dモデリングも、映像制作も、エフェクトも。<br class="hide-sp">
+                    これまで培ってきたCG技術を全部詰め込んで、妥協のないクオリティをお届けします。
                 </p>
                 <div class="hero__cta-group">
                     <a href="#pricing" class="btn btn--primary">📋 料金プランを見る</a>
@@ -1020,6 +1023,38 @@
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // ===== Hero Title Character Animation =====
+        (function() {
+            const title = document.getElementById('hero-title');
+            if (!title) return;
+            const processNode = (node) => {
+                if (node.nodeType === 3) {
+                    const text = node.textContent;
+                    const fragment = document.createDocumentFragment();
+                    for (let i = 0; i < text.length; i++) {
+                        const span = document.createElement('span');
+                        span.className = 'hero-char';
+                        span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+                        fragment.appendChild(span);
+                    }
+                    node.parentNode.replaceChild(fragment, node);
+                }
+            };
+            const walkNodes = (el) => {
+                const children = Array.from(el.childNodes);
+                children.forEach(child => {
+                    if (child.nodeType === 3 && child.textContent.trim()) {
+                        processNode(child);
+                    } else if (child.nodeType === 1 && child.tagName !== 'BR') {
+                        walkNodes(child);
+                    }
+                });
+            };
+            walkNodes(title);
+            const chars = title.querySelectorAll('.hero-char');
+            chars.forEach((c, i) => { c.style.animationDelay = (0.3 + i * 0.04) + 's'; });
+        })();
 
         // ===== Smooth Scroll =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
