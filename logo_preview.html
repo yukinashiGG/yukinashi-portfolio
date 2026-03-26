@@ -2,71 +2,160 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Yukinashi Logo - Style 4 Variations</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Cormorant+Garamond:wght@400;600;700&family=Josefin+Sans:wght@300;400;600;700&family=Raleway:wght@300;400;600;700;800&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Hero Background Styles</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #0f0c29; color: white; font-family: 'Outfit', sans-serif; padding: 40px; }
-  h2 { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 12px; font-weight: 300; letter-spacing: 0.1em; }
-  .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px 40px; margin-bottom: 20px; }
-  .pink { color: #f472b6; }
-  .purple { color: #c084fc; }
-  .grad { background: linear-gradient(135deg, #f472b6, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  body { font-family: 'Outfit', sans-serif; background: #f8f8f8; }
+  .label { font-size: 0.85rem; color: #888; padding: 16px 32px 8px; font-weight: 400; background: #eee; }
 
-  .logo-4a { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 0.02em; }
-  .logo-4b { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
-  .logo-4b .white { color: white; font-weight: 300; }
-  .logo-4c { font-family: 'Josefin Sans', sans-serif; font-size: 1.8rem; font-weight: 600; letter-spacing: 0.06em; }
-  .logo-4d { font-family: 'Raleway', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 0.03em; }
-  .logo-4e { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 0.02em; }
-  .logo-4e .dot { color: #f472b6; margin: 0 2px; }
-  .logo-4f { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-  .logo-4g { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 0.02em; }
-  .logo-4g .white { color: white; }
-  .logo-4h { font-family: 'Josefin Sans', sans-serif; font-size: 1.8rem; font-weight: 300; letter-spacing: 0.1em; }
+  .hero-demo { position: relative; height: 420px; overflow: hidden; margin-bottom: 4px; }
+  .hero-nav { position: absolute; top: 0; left: 0; width: 100%; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 14px 32px; }
+  .hero-nav .logo { font-size: 1.2rem; font-weight: 700; }
+  .hero-nav .links { display: flex; gap: 18px; font-size: 0.78rem; font-weight: 500; }
+  .hero-nav .links span { cursor: default; }
+
+  .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; z-index: 2; width: 80%; }
+  .badge { display: inline-block; padding: 6px 16px; border-radius: 100px; font-size: 0.75rem; font-weight: 500; margin-bottom: 20px; }
+  .title { font-size: 2rem; font-weight: 800; line-height: 1.4; margin-bottom: 12px; }
+  .desc { font-size: 0.85rem; line-height: 1.7; margin-bottom: 24px; }
+  .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-d { padding: 10px 24px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; border: none; cursor: default; }
+
+  .particles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+  .particle { position: absolute; border-radius: 50%; animation: floatUp linear infinite; }
+  @keyframes floatUp { 0% { transform: translateY(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-420px); opacity: 0; } }
+
+  .white-section { height: 100px; background: white; display: flex; align-items: center; justify-content: center; color: #aaa; font-size: 0.8rem; border-bottom: 1px solid #eee; margin-bottom: 0; }
+
+  /* === A: 現状（ダーク紺） === */
+  .hero-a { background: linear-gradient(135deg, #0f0c29, #1a1040, #24243e); }
+  .hero-a .hero-nav { background: rgba(15,12,41,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .hero-a .logo { color: white; }
+  .hero-a .links span { color: rgba(255,255,255,0.7); }
+  .hero-a .badge { background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.3); color: #f9a8d4; }
+  .hero-a .title { color: white; }
+  .hero-a .title em { font-style: normal; background: linear-gradient(135deg, #f472b6, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-a .desc { color: rgba(255,255,255,0.7); }
+  .hero-a .btn-d.primary { background: linear-gradient(135deg, #ec4899, #a855f7); color: white; }
+  .hero-a .btn-d.secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .hero-a .particle { background: rgba(236,72,153,0.5); width: 3px; height: 3px; }
+
+  /* === B: 白ベース + ピンクパーティクル === */
+  .hero-b { background: linear-gradient(180deg, #fdf2f8, #ffffff); }
+  .hero-b .hero-nav { background: white; border-bottom: 1px solid #f0e0ea; }
+  .hero-b .logo { color: #1a1040; }
+  .hero-b .links span { color: #777; }
+  .hero-b .badge { background: rgba(236,72,153,0.1); border: 1px solid rgba(236,72,153,0.2); color: #ec4899; }
+  .hero-b .title { color: #1a1040; }
+  .hero-b .title em { font-style: normal; background: linear-gradient(135deg, #ec4899, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-b .desc { color: #666; }
+  .hero-b .btn-d.primary { background: linear-gradient(135deg, #ec4899, #a855f7); color: white; }
+  .hero-b .btn-d.secondary { background: white; color: #555; border: 1px solid #ddd; }
+  .hero-b .particle { background: rgba(236,72,153,0.3); width: 4px; height: 4px; }
+
+  /* === C: 淡いグラデ（白→薄ピンク→薄紫→白） === */
+  .hero-c { background: linear-gradient(135deg, #fefefe, #fdf2f8, #f5f3ff, #fefefe); }
+  .hero-c .hero-nav { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .hero-c .logo { color: #1a1040; }
+  .hero-c .links span { color: #777; }
+  .hero-c .badge { background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); color: #7c3aed; }
+  .hero-c .title { color: #1a1040; }
+  .hero-c .title em { font-style: normal; background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-c .desc { color: #666; }
+  .hero-c .btn-d.primary { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; }
+  .hero-c .btn-d.secondary { background: white; color: #555; border: 1px solid #e0d4f0; }
+  .hero-c .particle { background: rgba(139,92,246,0.2); width: 5px; height: 5px; }
+
+  /* === D: ダーク → 白フェード === */
+  .hero-d { background: linear-gradient(180deg, #1a1040 0%, #2d1b5e 40%, #8b5cf6 70%, #f5f3ff 90%, #ffffff 100%); }
+  .hero-d .hero-nav { background: rgba(15,12,41,0.6); backdrop-filter: blur(12px); }
+  .hero-d .logo { color: white; }
+  .hero-d .links span { color: rgba(255,255,255,0.7); }
+  .hero-d .badge { background: rgba(236,72,153,0.2); border: 1px solid rgba(236,72,153,0.3); color: #f9a8d4; }
+  .hero-d .title { color: white; }
+  .hero-d .title em { font-style: normal; background: linear-gradient(135deg, #f472b6, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-d .desc { color: rgba(255,255,255,0.8); }
+  .hero-d .btn-d.primary { background: linear-gradient(135deg, #ec4899, #a855f7); color: white; }
+  .hero-d .btn-d.secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); }
+  .hero-d .particle { background: rgba(244,114,182,0.4); width: 3px; height: 3px; }
 </style>
 </head>
 <body>
 
-<div class="card">
-  <h2>4-A — 太字 Yuki=白 / nashi=ピンク（ベース）</h2>
-  <div class="logo-4a"><span style="color:white">Yuki</span><span class="pink">nashi</span></div>
+<!-- A -->
+<div class="label">案A — 現状維持（ダーク紺 + パーティクル）</div>
+<div class="hero-demo hero-a">
+  <div class="particles" id="pa"></div>
+  <div class="hero-nav"><div class="logo">Yukinashi</div><div class="links"><span>制作実績</span><span>イラスト作品</span><span>料金表</span><span>FAQ</span></div></div>
+  <div class="hero-content">
+    <div class="badge">● お仕事受付中 ・ 4月〜着手可能</div>
+    <div class="title">あなたのキャラクターを、<br><em>一番輝く姿に。</em></div>
+    <div class="desc">Live2Dモデリングも、映像制作も、エフェクトも。</div>
+    <div class="btns"><div class="btn-d primary">📋 料金プランを見る</div><div class="btn-d secondary">🎨 制作実績を見る</div></div>
+  </div>
 </div>
+<div class="white-section">↓ ここから白いセクション ↓</div>
 
-<div class="card">
-  <h2>4-B — UPPERCASE 細太コントラスト（YUKI=細白 / NASHI=太ピンク）</h2>
-  <div class="logo-4b"><span class="white">YUKI</span><span class="pink">NASHI</span></div>
+<!-- B -->
+<div class="label">案B — 白ベース + 薄ピンクパーティクル（統一感◎）</div>
+<div class="hero-demo hero-b">
+  <div class="particles" id="pb"></div>
+  <div class="hero-nav"><div class="logo">Yukinashi</div><div class="links"><span>制作実績</span><span>イラスト作品</span><span>料金表</span><span>FAQ</span></div></div>
+  <div class="hero-content">
+    <div class="badge">● お仕事受付中 ・ 4月〜着手可能</div>
+    <div class="title">あなたのキャラクターを、<br><em>一番輝く姿に。</em></div>
+    <div class="desc">Live2Dモデリングも、映像制作も、エフェクトも。</div>
+    <div class="btns"><div class="btn-d primary">📋 料金プランを見る</div><div class="btn-d secondary">🎨 制作実績を見る</div></div>
+  </div>
 </div>
+<div class="white-section">↓ ここから白いセクション ↓</div>
 
-<div class="card">
-  <h2>4-C — Josefin Sans + パープルアクセント</h2>
-  <div class="logo-4c"><span style="color:white">Yuki</span><span class="purple">nashi</span></div>
+<!-- C -->
+<div class="label">案C — 淡いピンク×パープルグラデーション（柔らかい印象）</div>
+<div class="hero-demo hero-c">
+  <div class="particles" id="pc"></div>
+  <div class="hero-nav"><div class="logo">Yukinashi</div><div class="links"><span>制作実績</span><span>イラスト作品</span><span>料金表</span><span>FAQ</span></div></div>
+  <div class="hero-content">
+    <div class="badge">● お仕事受付中 ・ 4月〜着手可能</div>
+    <div class="title">あなたのキャラクターを、<br><em>一番輝く姿に。</em></div>
+    <div class="desc">Live2Dモデリングも、映像制作も、エフェクトも。</div>
+    <div class="btns"><div class="btn-d primary">📋 料金プランを見る</div><div class="btn-d secondary">🎨 制作実績を見る</div></div>
+  </div>
 </div>
+<div class="white-section">↓ ここから白いセクション ↓</div>
 
-<div class="card">
-  <h2>4-D — Raleway + nashi=グラデーション</h2>
-  <div class="logo-4d"><span style="color:white">Yuki</span><span class="grad">nashi</span></div>
+<!-- D -->
+<div class="label">案D — ダーク上部 → 白へフェード（自然な遷移）</div>
+<div class="hero-demo hero-d">
+  <div class="particles" id="pd"></div>
+  <div class="hero-nav"><div class="logo">Yukinashi</div><div class="links"><span>制作実績</span><span>イラスト作品</span><span>料金表</span><span>FAQ</span></div></div>
+  <div class="hero-content">
+    <div class="badge">● お仕事受付中 ・ 4月〜着手可能</div>
+    <div class="title">あなたのキャラクターを、<br><em>一番輝く姿に。</em></div>
+    <div class="desc">Live2Dモデリングも、映像制作も、エフェクトも。</div>
+    <div class="btns"><div class="btn-d primary">📋 料金プランを見る</div><div class="btn-d secondary">🎨 制作実績を見る</div></div>
+  </div>
 </div>
+<div class="white-section">↓ ここから白いセクション ↓</div>
 
-<div class="card">
-  <h2>4-E — ドット区切り Yuki・nashi</h2>
-  <div class="logo-4e"><span style="color:white">Yuki</span><span class="dot">.</span><span class="pink">nashi</span></div>
-</div>
-
-<div class="card">
-  <h2>4-F — Montserrat UPPERCASE + nashi=グラデーション</h2>
-  <div class="logo-4f"><span style="color:white">YUKI</span><span class="grad">NASHI</span></div>
-</div>
-
-<div class="card">
-  <h2>4-G — Yuki=白 / nashi=グラデーション（おすすめ）</h2>
-  <div class="logo-4g"><span class="white">Yuki</span><span class="grad">nashi</span></div>
-</div>
-
-<div class="card">
-  <h2>4-H — Josefin Sans 細字 + ワイドレタースペース</h2>
-  <div class="logo-4h"><span style="color:white">Yuki</span><span class="pink">nashi</span></div>
-</div>
-
+<script>
+function createParticles(containerId, count) {
+  const container = document.getElementById(containerId);
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.top = Math.random() * 100 + '%';
+    p.style.animationDuration = (3 + Math.random() * 5) + 's';
+    p.style.animationDelay = Math.random() * 5 + 's';
+    container.appendChild(p);
+  }
+}
+createParticles('pa', 30);
+createParticles('pb', 25);
+createParticles('pc', 20);
+createParticles('pd', 30);
+</script>
 </body>
 </html>
