@@ -29,7 +29,7 @@ test_form_send.py
 テスト送信.bat
 
 # Large media & work files
-videos/
+videos/情報.txt
 Source/
 背景テンプレート/
 showcase_v*.html
@@ -37,4 +37,3 @@ showcase_mockups.html
 *.svg
 *.ai
 *.mp3
-*.mp4
