@@ -171,6 +171,9 @@
         .showcase-card > * { position: relative; z-index: 1; }
         .showcase-card__image { width: 100%; aspect-ratio: 16/10; background: var(--gradient-soft); display: flex; align-items: center; justify-content: center; color: var(--accent-pink); font-size: 0.9rem; text-align: center; padding: 20px; position: relative; overflow: hidden; }
         .showcase-card__image img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; padding: 0; }
+        .showcase-card__play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; background: rgba(0,0,0,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2; transition: all 0.3s ease; pointer-events: none; }
+        .showcase-card__play::after { content: ''; border-style: solid; border-width: 10px 0 10px 18px; border-color: transparent transparent transparent white; margin-left: 3px; }
+        .showcase-card:hover .showcase-card__play { background: rgba(236,72,153,0.7); transform: translate(-50%, -50%) scale(1.1); }
         .showcase-card__image .placeholder-label { position: absolute; top: 8px; right: 8px; background: var(--accent-pink); color: white; font-size: 0.65rem; padding: 2px 8px; border-radius: 100px; font-weight: 600; }
         .showcase-card__info { padding: 20px; }
         .showcase-card__title { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; }
@@ -518,9 +521,8 @@
                 <div class="showcase-card" data-category="corporate" data-video="videos/企業様_01/corporate_01.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--corporate">企業</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/企業様_01/corporate_01.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/企業様_01/thumb/thumb_00000.jpg" alt="カバー株式会社様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">カバー株式会社様</div>
@@ -530,9 +532,8 @@
                 <div class="showcase-card" data-category="corporate" data-video="videos/企業様_02/corporate_02.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--corporate">企業</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/企業様_02/corporate_02.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/企業様_02/thumb/thumb_00000.jpg" alt="株式コロニーラボ様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">株式コロニーラボ様</div>
@@ -542,9 +543,8 @@
                 <div class="showcase-card" data-category="corporate" data-video="videos/企業様_03/A03_にとりずむ_シエラ.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--corporate">企業</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/企業様_03/A03_にとりずむ_シエラ.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/企業様_03/thumb/thumb_00000.jpg" alt="にとりずむ様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">にとりずむ様</div>
@@ -555,9 +555,8 @@
                 <div class="showcase-card" data-category="individual" data-video="videos/個人様_01/B06_森白エダハ.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--individual">個人</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/個人様_01/B06_森白エダハ.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/個人様_01/thumb/thumb_00000.jpg" alt="森白エダハ様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">森白エダハ様</div>
@@ -567,9 +566,8 @@
                 <div class="showcase-card" data-category="individual" data-video="videos/個人様_02/05_不知火.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--individual">個人</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/個人様_02/05_不知火.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/個人様_02/thumb/thumb_00000.jpg" alt="不知火燈様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">不知火燈様</div>
@@ -579,9 +577,8 @@
                 <div class="showcase-card" data-category="individual" data-video="videos/個人様_03/B02_ゆん.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--individual">個人</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/個人様_03/B02_ゆん.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/個人様_03/thumb/thumb_00000.jpg" alt="ゆん様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">ゆん様</div>
@@ -591,9 +588,8 @@
                 <div class="showcase-card" data-category="individual" data-video="videos/個人様_04/B01_ネト.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--individual">個人</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/個人様_04/B01_ネト.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/個人様_04/thumb/thumb_00000.jpg" alt="ネト様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">ネト様</div>
@@ -603,9 +599,8 @@
                 <div class="showcase-card" data-category="individual" data-video="videos/個人様_05/B03_最上ルカ.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--individual">個人</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/個人様_05/B03_最上ルカ.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/個人様_05/thumb/thumb_00000.jpg" alt="最上ルカ様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">最上ルカ様</div>
@@ -615,9 +610,8 @@
                 <div class="showcase-card" data-category="individual" data-video="videos/個人様_06/B04_りんた.mp4">
                     <div class="showcase-card__image">
                         <span class="showcase-card__badge showcase-card__badge--individual">個人</span>
-                        <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
-                            <source src="videos/個人様_06/B04_りんた.mp4" type="video/mp4">
-                        </video>
+                        <img src="videos/個人様_06/thumb/thumb_00000.jpg" alt="雪音燐聖様" loading="lazy">
+                        <div class="showcase-card__play"></div>
                     </div>
                     <div class="showcase-card__info">
                         <div class="showcase-card__title">雪音燐聖様</div>
