@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ユキナシ | Live2Dモデリング・イラスト制作</title>
     <meta name="description" content="ユキナシのLive2Dモデリング・イラスト制作。一枚絵からパーツ分け・モデリング・映像制作までワンストップで対応。カバー株式会社様実績あり。">
+    <!-- OGP -->
+    <meta property="og:title" content="ユキナシ | Live2Dモデリング・イラスト制作">
+    <meta property="og:description" content="一枚絵からパーツ分け・モデリング・映像制作までワンストップで対応。カバー株式会社様実績あり。">
+    <meta property="og:image" content="https://yukinashigg.github.io/yukinashi-homepage/ogp.png">
+    <meta property="og:url" content="https://yukinashigg.github.io/yukinashi-homepage/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ユキナシ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yukinashi_gg">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -349,7 +360,7 @@
         <div class="lightbox__content">
             <button class="lightbox__nav" id="lb-prev">‹</button>
             <div id="lb-img-container">
-                <div class="lightbox__placeholder" id="lb-placeholder">📸 画像差替え後に表示されます</div>
+                <div class="lightbox__placeholder" id="lb-placeholder">読み込み中...</div>
             </div>
             <button class="lightbox__nav" id="lb-next">›</button>
         </div>
@@ -384,7 +395,7 @@
         <div class="hero__particles" id="particles"></div>
         <div class="container">
             <div class="hero__content">
-                <div class="hero__badge">お仕事受付中 ・ 4月〜着手可能</div>
+                <div class="hero__badge">お仕事受付中 ・ 5月〜着手可能</div>
                 <h1 class="hero__title" id="hero-title">
                     <span style="white-space:nowrap">あなたのキャラクターを、</span><br><span class="gradient-text">一番輝く姿に。</span>
                 </h1>
@@ -407,7 +418,7 @@
             <div class="availability__inner">
                 <div class="availability__label">📅 現在の受付状況</div>
                 <div class="availability__slots">
-                    <!-- ★★★ 差替えポイント④: 受付状況（月1回更新） ★★★ -->
+                    <!-- 受付状況（月1回更新） -->
                     <div class="availability__slot availability__slot--closed">
                         <span class="availability__month">4月枠</span>
                         <span class="availability__status">満枠</span>
@@ -447,7 +458,7 @@
                 <div class="credential-item">
                     <div class="credential-item__icon">🤝</div>
                     <div class="credential-item__text">
-                        <!-- TODO: 差替え → 実績が増えたら更新 -->
+
                         <strong>法人・個人 多数の実績</strong>
                         <span>継続案件あり</span>
                     </div>
@@ -470,7 +481,7 @@
             <h2 class="section-title">クリエイター紹介</h2>
             <div class="about__inner">
                 <div class="about__avatar">
-                    <!-- ★ avatar.png を pricing-page/ フォルダに置いてください -->
+
                     <img src="avatar.png" alt="ユキナシ" onerror="this.style.display='none';this.parentElement.style.background='var(--gradient-main)';this.parentElement.innerHTML='🎨';this.parentElement.style.display='flex';this.parentElement.style.alignItems='center';this.parentElement.style.justifyContent='center';this.parentElement.style.fontSize='4rem';">
                 </div>
                 <div class="about__info">
@@ -973,7 +984,7 @@
             <h2 class="cta__title">お気軽にご相談ください</h2>
             <p class="cta__desc">お見積もり・ご相談は無料です。まずはお気軽にお声がけください。</p>
             <div class="cta__methods">
-                <!-- ★★★ 差替えポイント③: GoogleフォームURL ★★★ -->
+
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8mKLfx8Y5IplEBcbJEgE9H2bsJQ4C1s2NGm_ydCw9VTT16w/viewform" target="_blank" class="cta-method" id="form-link" onclick="gtag('event','click_inquiry_form',{method:'google_form'})">
                     <div class="cta-method__icon">📋</div>
                     <div class="cta-method__title">ご依頼フォーム</div>
@@ -1007,7 +1018,7 @@
         // ===== Particle Animation =====
         (function() {
             const container = document.getElementById('particles');
-            if (!container) return;
+            if (!container || container.style.display === 'none' || getComputedStyle(container).display === 'none') return;
             const count = 50;
             for (let i = 0; i < count; i++) {
                 const p = document.createElement('div');
